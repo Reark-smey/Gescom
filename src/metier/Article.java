@@ -10,7 +10,8 @@ public class Article {
     
     public Article(int idArticle,
                    String designation,
-                   int qteStock, double prix,
+                   int qteStock,
+                   double prix,
                    Tva uneTva,
                    Famille uneFamille) {
         /* Affectations */
