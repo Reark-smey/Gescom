@@ -100,9 +100,8 @@ public class Gescom {
      */
     private static void afficherCommandesClient(Representant unRepresentant) {
         /* A compléter */
-        for(Client client : unRepresentant.getLesClient()){
-            System.out.println(client.getCaClient());
-        }
+
+
     }
 
     /**
@@ -114,6 +113,9 @@ public class Gescom {
      */
     private static void listerClients(Representant unRepresentant) {
         /* A compléter */
+        for(Client client : unRepresentant.getLesClient()) {
+            System.out.println(client.getIdClient() + " " + client.getRaisonSociale());
+        }
     }
 
     /**
@@ -157,7 +159,9 @@ public class Gescom {
      * @param unRepresentant 
      */
     private static void afficherCaClients(Representant unRepresentant) {
-        /* A compléter */
+        for(Client client : unRepresentant.getLesClient()) {
+            System.out.println(client.getCaClient());
+        }
     }
 
     /**
