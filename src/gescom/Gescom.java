@@ -77,7 +77,18 @@ public class Gescom {
      */
     private static void afficherCaClient(Representant unRepresentant) {
         /* A compléter */
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Saisir l'identifiant du client");
+        int id = sc.nextInt();
 
+        Client client = unRepresentant.getClientById(id);
+        if(client != null) {
+            client.cumulCA();
+            System.out.println(client.getCaClient());
+        } else {
+            System.out.println("Le client n'existe pas");
+
+        }
     }
 
     /**

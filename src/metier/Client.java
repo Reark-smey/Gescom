@@ -53,6 +53,7 @@ public class Client {
                   String raisonSociale,
                   Categorie uneCategorie) {
         /* Affectations */
+        setIdClient(idClient);
         setRaisonSociale(raisonSociale);
         setUneCategorie(uneCategorie);
     }
