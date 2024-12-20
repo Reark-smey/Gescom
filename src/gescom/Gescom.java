@@ -100,6 +100,10 @@ public class Gescom {
      */
     private static void afficherCommandesClient(Representant unRepresentant) {
         /* A compléter */
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Saisir l'id' du client");
+        int id = sc.nextInt();
+        Client client = unRepresentant.getClientById(id);
 
 
     }
@@ -125,8 +129,21 @@ public class Gescom {
      * de ce client et arrêter le parcours.
      * @param unRepresentant 
      */
-    private static void supprimerCommande(Representant unRepresentant) {
+    private static void supprimerCommande(Representant unRepresentant, List<Commande> lesCommandes) {
         /* A compléter */
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Saisir le numéro de commande à supprimer");
+        int numero = sc.nextInt();
+
+        for(Client client : unRepresentant.getLesClient()){
+            if(client.equals(numero)) {
+                unRepresentant.getLesClient().remove(client);
+            }
+        }
+
+
+
+
     }
 
     /**
@@ -176,6 +193,7 @@ public class Gescom {
      */
     private static void rechercherCommande(Representant unRepresentant) {
         /* A compléter */
+
     }
 
     /**
