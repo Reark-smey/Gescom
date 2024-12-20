@@ -129,7 +129,7 @@ public class Gescom {
      * de ce client et arrêter le parcours.
      * @param unRepresentant 
      */
-    private static void supprimerCommande(Representant unRepresentant, List<Commande> lesCommandes) {
+    private static void supprimerCommande(Representant unRepresentant) {
         /* A compléter */
         Scanner sc = new Scanner(System.in);
         System.out.println("Saisir le numéro de commande à supprimer");
