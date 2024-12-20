@@ -2,6 +2,8 @@ package gescom;
 
 import metier.*;
 import dao.*;
+
+import java.util.List;
 import java.util.Scanner;
 import utilitaires.*;
 
@@ -75,6 +77,7 @@ public class Gescom {
      */
     private static void afficherCaClient(Representant unRepresentant) {
         /* A compléter */
+
     }
 
     /**
@@ -86,6 +89,9 @@ public class Gescom {
      */
     private static void afficherCommandesClient(Representant unRepresentant) {
         /* A compléter */
+        for(Client client : unRepresentant.getLesClient()){
+            System.out.println(client.getCaClient());
+        }
     }
 
     /**

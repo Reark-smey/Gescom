@@ -5,14 +5,56 @@ import java.util.*;
 public class Client {
 
     /* propriétés privées */
-
+    private int idClient;
+    private String raisonSociale;
+    private Double caClient;
+    private List<Commande> lesCommandes;
+    private Categorie uneCategorie;
     /* getters et setters */
-    
-    
+
+    public void setUneCategorie(Categorie uneCategorie) {
+        this.uneCategorie = uneCategorie;
+    }
+
+    public Categorie getUneCategorie() {
+        return uneCategorie;
+    }
+
+    public void setLesCommandes(List<Commande> commande) {
+        this.lesCommandes = commande;
+    }
+
+    public List<Commande> getLesCommandes() {
+        return lesCommandes;
+    }
+
+    public void setIdClient(int client) {
+        this.idClient = client;
+    }
+    public int getIdClient() {
+        return this.idClient;
+    }
+    public void setRaisonSociale(String rs) {
+        this.raisonSociale = rs;
+    }
+    public String getRaisonSociale() {
+        return this.raisonSociale;
+    }
+
+    public void setCaClient(Double caClient) {
+        this.caClient = caClient;
+    }
+
+    public Double getCaClient() {
+        return caClient;
+    }
+
     public Client(int idClient,
                   String raisonSociale,
                   Categorie uneCategorie) {
         /* Affectations */
+        setRaisonSociale(raisonSociale);
+        setUneCategorie(uneCategorie);
     }
 
     /**
@@ -27,6 +69,7 @@ public class Client {
         }
         if (!getLesCommandes().contains(uneCommande)) {
             this.lesCommandes.add(uneCommande);
+            this.cumulCA();
         }
     }
 
@@ -37,6 +80,12 @@ public class Client {
      */
     public void cumulCA() {
         /* A compléter */
+        double caclient = 0;
+        for(Commande unecommande : lesCommandes){
+            this.caClient = unecommande.valoriserCommande() + caclient;
+        }
+
+
     }
 
     /**
@@ -48,7 +97,12 @@ public class Client {
      */
     public Commande getCommandeById(int idCommande) {
         /* A compléter */
-        return /* A compléter */
+        for(Commande unecommande : lesCommandes) {
+            if(unecommande.equals(idCommande)){
+                return unecommande;
+            }
+        }
+        return null; /* A compléter */
     }
 
     /**
@@ -57,8 +111,16 @@ public class Client {
      * aussi ses lignes (Composition)
      * @param uneCommande 
      */
-    public void supprimerCommande(Commande uneCommande) {
+    public void supprimerCommande(Commande uneCommande, List<Commande> lesCommandes) {
        /* A compléter */
+        int indice = 0;
+        for(Commande lacommande : lesCommandes) {
+            if(lacommande.equals(uneCommande)) {
+                lesCommandes.remove(indice);
+                break;
+            }indice++;
+        }
+
     }
 
 

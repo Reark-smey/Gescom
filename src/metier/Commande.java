@@ -6,12 +6,41 @@ import java.util.*;
 public class Commande {
 
     /* propriétés privées */
-    
+    private int idCommande;
+    private Date dateCommande;
+    private List<Ligne> lesLignes;
     /* getters et setters */
-    
+
+    public void setLesLignes(List<Ligne> lesLignes) {
+        this.lesLignes = lesLignes;
+    }
+
+    public List<Ligne> getLesLignes() {
+        return lesLignes;
+    }
+
+    public void setIdCommande(int idCommande) {
+        this.idCommande = idCommande;
+    }
+
+    public int getIdCommande() {
+        return idCommande;
+    }
+
+    public void setDateCommande(Date dateCommande) {
+        this.dateCommande = dateCommande;
+    }
+
+    public Date getDateCommande() {
+        return dateCommande;
+    }
+
+
     public Commande (int idCommande,
                      Date dateCommande){
         /* Affectations */
+        setIdCommande(idCommande);
+        setDateCommande(dateCommande);
     }
     
     /**
@@ -35,8 +64,15 @@ public class Commande {
      * Supprime la ligne passée en paramètre
      * @param ligneASupprimer Ligne à supprimer
      */
-    public void supprimerLigne(Ligne ligneASupprimer) {
+    public void supprimerLigne(Ligne ligneASupprimer, List<Ligne> lesLignes) {
         /* A compléter */
+        int indice = 0;
+        for(Ligne uneLigne : lesLignes) {
+            if(uneLigne.equals(ligneASupprimer)) {
+                lesLignes.remove(indice);
+                break;
+            }indice++;
+        }
     }
     
     /**
@@ -48,7 +84,15 @@ public class Commande {
      */    
     public Ligne chercherLigne(int idArticle, BdD bdd) {
         /* A compléter */
-        return /* A compléter */
+
+        Article articleATrouver = bdd.getArticleBdD(idArticle);
+        for(Ligne uneligne : lesLignes){
+            if(uneligne.getUnArticle().equals(articleATrouver)){
+                return uneligne;
+            }
+        }
+        return null;
+
     }
 
     /**
@@ -59,7 +103,11 @@ public class Commande {
      */
     public double valoriserCommande() {
         /* A compléter */
-        return /* A compléter */
+        double prixTotal = 0;
+        for(Ligne laligne : lesLignes) {
+            prixTotal = prixTotal + laligne.getQteCommande() * laligne.getUnArticle().getprix();
+        }
+        return prixTotal;/* A compléter */
     }
 
 
